@@ -87,26 +87,26 @@ int main(void)
 	// }
 
 	// test Distance Sensor with PID
-	motor_command_t motors;
-	line_data_t line_data;
-	init_encoder();
+	// motor_command_t motors;
+	// line_data_t line_data;
+	// init_encoder();
 
-	delay_ms(500);
-	while(1){
+	// delay_ms(500);
+	// while(1){
 		
-		u08 dist_sensor = analog(DISTANCE_SENSOR);
-		print_distance_encoders(dist_sensor, left_encoder, right_encoder);
-		line_data = read_line_sensor();
-		motors = compute_proportional(line_data.left, line_data.right);
-		set_motors(motors);
-		if((get_btn() == 1) || (get_btn2() == 1)){
- 	   	halt();
- 	     delay_ms(500);
- 	     while((get_btn() == 0) && (get_btn2() == 0)){
- 	       	delay_ms(1);
- 	  	}
- 	 }
-	}
+	// 	u08 dist_sensor = analog(DISTANCE_SENSOR);
+	// 	print_distance_encoders(dist_sensor, left_encoder, right_encoder);
+	// 	line_data = read_line_sensor();
+	// 	motors = compute_proportional(line_data.left, line_data.right);
+	// 	set_motors(motors);
+	// 	if((get_btn() == 1) || (get_btn2() == 1)){
+ // 	   	halt();
+ // 	     delay_ms(500);
+ // 	     while((get_btn() == 0) && (get_btn2() == 0)){
+ // 	       	delay_ms(1);
+ // 	  	}
+ // 	 }
+	// }
 	
 
 	while(1){
