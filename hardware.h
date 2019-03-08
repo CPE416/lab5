@@ -45,6 +45,16 @@ line_data_t read_line_sensor(){
     return data;
 }
 
+line_data4_t read_line_sensor4(){
+    line_data4_t data;
+    data.far_left = analog(LINE_SENSOR_FAR_LEFT);
+    data.left = analog(LINE_SENSOR_LEFT);
+    data.right = analog(LINE_SENSOR_RIGHT);
+    data.far_right = analog(LINE_SENSOR_FAR_RIGHT);
+    return data;
+}
+
+
 
 void motor(u08 num, int speed){
     if (num == MOTOR_RIGHT){
@@ -82,6 +92,7 @@ void start_screen(char *str){
     while((get_btn() == 0) && (get_btn2() == 0)){
         delay_ms(1);
     }
+    delay_ms(500);
 }
 
 u08 poll_analog_pin(u08 pin_num){

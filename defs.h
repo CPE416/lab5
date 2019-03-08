@@ -23,8 +23,12 @@ typedef unsigned char u08;
 #define PHOTO_DIODE_RIGHT 0
 #define PHOTO_DIODE_LEFT 1
 
-#define LINE_SENSOR_RIGHT 3
+#define LINE_SENSOR_FAR_RIGHT 0
+#define LINE_SENSOR_RIGHT 1
 #define LINE_SENSOR_LEFT 2
+#define LINE_SENSOR_FAR_LEFT 3
+
+#define DISTANCE_SENSOR 5
 
 #define BTN2_PIN DIGITAL9_PIN
 
@@ -55,5 +59,12 @@ typedef struct {
     u08 left;
     u08 right;
 }line_data_t;
+
+typedef struct {
+	u08 far_left;
+    u08 left;
+    u08 right;
+    u08 far_right;
+}line_data4_t;
 
 #endif
