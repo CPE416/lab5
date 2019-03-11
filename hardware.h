@@ -45,15 +45,16 @@ line_data_t read_line_sensor(){
     return data;
 }
 
-line_data4_t read_line_sensor4(){
-    line_data4_t data;
-    data.far_left = analog(LINE_SENSOR_FAR_LEFT);
-    data.left = analog(LINE_SENSOR_LEFT);
-    data.right = analog(LINE_SENSOR_RIGHT);
-    data.far_right = analog(LINE_SENSOR_FAR_RIGHT);
-    return data;
+void read_line_sensor4(line_data4_t *data){
+    data->far_left = analog(LINE_SENSOR_FAR_LEFT);
+    data->left = analog(LINE_SENSOR_LEFT);
+    data->right = analog(LINE_SENSOR_RIGHT);
+    data->far_right = analog(LINE_SENSOR_FAR_RIGHT);
 }
 
+u08 read_distance_sensor(){
+    return analog(DISTANCE_SENSOR);
+}
 
 
 void motor(u08 num, int speed){
@@ -69,7 +70,7 @@ void set_motors(motor_command_t motors){
     set_servo(MOTOR_RIGHT, ((0 - motors.right) * 0.3333 ) + 127);
 }
 void motors(int left, int right){
-    set_servo(MOTOR_LEFT, ( left * 0.3333 ) + 127);
+    set_servo(MOTOR_LEFT, (left * 0.3333) + 127);
     set_servo(MOTOR_RIGHT, ((0 - right) * 0.3333 ) + 127);
 }
 

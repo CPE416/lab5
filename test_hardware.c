@@ -7,16 +7,16 @@
 // Custom libs
 #include "delay.h"
 #include "hardware.h"
-#include "line_follow_pid.h"
+//#include "line_follow_pid.h"
 #include "globals.h"
-#include "encoder.h"
+//#include "encoder.h"
 
 #define PHOTO_DIODE_RIGHT 0
 #define PHOTO_DIODE_LEFT 1
-#define LINE_SENSOR_RIGHT 3
-#define LINE_SENSOR_LEFT 2
-#define DISTANCE_SENSOR 5
-#define ENCODER_SENSOR 4
+// #define LINE_SENSOR_RIGHT 3
+// #define LINE_SENSOR_LEFT 2
+// #define DISTANCE_SENSOR 5
+// #define ENCODER_SENSOR 4
 
 void poll_linesensor(u08 pin_num);
 void poll_photodiode(u08 pin_num);
@@ -107,6 +107,15 @@ int main(void)
  // 	  	}
  // 	 }
 	// }
+
+	//Test 4 Line Sensors
+	line_data4_t line_data;
+	while (1){
+		read_line_sensor4(&line_data);
+		print_4(line_data.far_right, line_data.right, line_data.left, line_data.far_left);
+		delay_ms(20);
+	}
+	
 	
 
 	while(1){
